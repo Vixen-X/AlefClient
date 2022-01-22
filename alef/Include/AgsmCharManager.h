@@ -10,7 +10,7 @@ Last Update: 2002. 08. 23
 
 #include "ApBase.h"
 
-#include <dplay8.h>
+#include <dx9/dplay8.h>
 
 #include "AuPacket.h"
 #include "AuGenerateID.h"
@@ -121,10 +121,10 @@ typedef struct _stAgsmCharManagerLoginInfo {
 class AgsmSkill;
 class AgsmTitle;
 class AgsmBillInfo;
-class AgsmBilling;//JK_ºô¸µ
+class AgsmBilling;//JK_ë¹Œë§
 class AuHangameTPack;
 class AuHanIPCheckForServer;
-class AgsmPrivateTrade; //JK_°Å·¡Áß±İÁö
+class AgsmPrivateTrade; //JK_ê±°ë˜ì¤‘ê¸ˆì§€
 
 
 //	AgsmCharManager class
@@ -144,7 +144,7 @@ private:
 	AgpmAdmin*					m_pagpmAdmin;
 	AgpmBillInfo*				m_pagpmBillInfo;
 	AgsmBillInfo*				m_pagsmBillInfo;
-	AgsmBilling*				m_pagsmBilling;//JK_ºô¸µ
+	AgsmBilling*				m_pagsmBilling;//JK_ë¹Œë§
 
 	//AgsmDBStream*				m_pagsmDBStream;
 	AgsmAOIFilter*				m_pagsmAOIFilter;
@@ -165,7 +165,7 @@ private:
 	AgpmConfig*					m_pAgpmConfig;
 	AgsmSkill*					m_pagsmSkill;
 
-	AgsmPrivateTrade*			m_pcsAgsmPrivateTrade;//JK_°Å·¡Áß±İÁö
+	AgsmPrivateTrade*			m_pcsAgsmPrivateTrade;//JK_ê±°ë˜ì¤‘ê¸ˆì§€
 
 
 	AuPacket					m_csPacket;
@@ -294,7 +294,7 @@ public:
 	INT16 DeleteCharacter(CHAR *szAccountName, AgpdCharacter *pcsCharacter);
 	*/
 
-	//ÀÎÁõµÈ Account°ü¸®¿ë
+	//ì¸ì¦ëœ Accountê´€ë¦¬ìš©
 	BOOL AddCertificatedAccount( char *pstrAccountID, INT32 lCID );
 	BOOL RemoveCertificatedAccount( char *pstrAccountID );
 	INT32 GetCertificatedAccountCID( char *pstrAccountID );
@@ -309,7 +309,7 @@ public:
 	
 
 	//////////////////////////////////////////////////////////////////////////
-	// Log °ü·Ã - 2004.05.02. steeple
+	// Log ê´€ë ¨ - 2004.05.02. steeple
 	BOOL	WriteLoginLog(AgpdCharacter* pcsAgpdCharacter);
 	BOOL	WriteLogoutLog(AgpdCharacter* pcsAgpdCharacter);
 	BOOL	WriteLogoutBankLog(AgpdCharacter* pcsAgpdCharacter);
