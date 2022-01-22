@@ -9,7 +9,7 @@ Last Update: 2002. 05. 03
 #define __AGSDCHARACTER_H__
 
 //#include <time.h>
-#include <dplay8.h>
+#include <dx9/dplay8.h>
 #include "ApBase.h"
 #include "AsDefine.h"
 //#include "AgpdParty.h"
@@ -20,7 +20,7 @@ Last Update: 2002. 05. 03
 #include "AuGameGuard.h"
 #endif
 
-#define AGSD_CHARACTER_HISTORY_NUMBER				31	// ÁÖÀÇ : ÀÌ ¼ıÀÚ¸¦ ¹Ù²Ù¸é Packet Á¤ÀÇµµ ¹Ù²ã¾ß ÇÑ´Ù.
+#define AGSD_CHARACTER_HISTORY_NUMBER				31	// ì£¼ì˜ : ì´ ìˆ«ìë¥¼ ë°”ê¾¸ë©´ Packet ì •ì˜ë„ ë°”ê¿”ì•¼ í•œë‹¤.
 
 #define AGSD_CHARACTER_HISTORY_DEFAULT_DURATION		30000
 #define AGSD_CHARACTER_HISTORY_DEFAULT_RANGE		10000.0f
@@ -61,13 +61,13 @@ typedef struct
 	//AgsdCharacterHistoryEntry	m_stLastEntry;
 	//eAgpmPvPTargetType			m_eLastTargetType;
 
-	INT32						m_lLastEnemyTID;	// ¶«»§¿ë. -_-; 2006.06.02. steeple
+	INT32						m_lLastEnemyTID;	// ë•œë¹µìš©. -_-; 2006.06.02. steeple
 } AgsdCharacterHistory;
 
 // 2005.11.29. steeple
-// ¸÷ ¸ôÀÌ ¹æÁö¿ëÀ¸·Î ¸¸µë.
+// ëª¹ ëª°ì´ ë°©ì§€ìš©ìœ¼ë¡œ ë§Œë“¬.
 const int AGSDCHARACTER_MAX_TARGET_INFO			= 30;
-const int AGSDCHARACTER_TARGET_INFO_PERIOD		= 30000;	// 30 ÃÊ
+const int AGSDCHARACTER_TARGET_INFO_PERIOD		= 30000;	// 30 ì´ˆ
 
 typedef struct
 {
@@ -107,7 +107,7 @@ typedef struct _AgsdCharacterCBWaitOperation {
 	UINT32		dpnidClient;
 } AgsdCharacterCBWaitOperation;
 
-typedef enum _eAgpdCharacterBanKeepTime	// AgpdAdmin ÀÇ eAgpmAdminBanKeepTime °ú °°´Ù. (2004.05.18 ¼öÁ¤)
+typedef enum _eAgpdCharacterBanKeepTime	// AgpdAdmin ì˜ eAgpmAdminBanKeepTime ê³¼ ê°™ë‹¤. (2004.05.18 ìˆ˜ì •)
 {
 	AGSDCHAR_BAN_KEEPTIME_ZERO = 0,
 	AGSDCHAR_BAN_KEEPTIME_5H,
@@ -119,7 +119,7 @@ typedef enum _eAgpdCharacterBanKeepTime	// AgpdAdmin ÀÇ eAgpmAdminBanKeepTime °ú
 	AGSDCHAR_BAN_KEEPTIME_UNLIMIT,
 } eAgpdCharacterBanTime;
 
-typedef struct _AgsdCharacterBan	// 2004.03.30. steeple - AgpdCharacter ¿¡ ÀÖ´Â °ÍÀ» ¿©±â¼­ ´Ù ÇÕÄ§
+typedef struct _AgsdCharacterBan	// 2004.03.30. steeple - AgpdCharacter ì— ìˆëŠ” ê²ƒì„ ì—¬ê¸°ì„œ ë‹¤ í•©ì¹¨
 {
 	INT32 m_lChatBanStartTime;
 	INT8 m_lChatBanKeepTime;
@@ -163,7 +163,7 @@ typedef enum	_AgsdCharacterReturnStatus {
 	AGSDCHAR_RETURN_STATUS_FINISH_SAVE,
 } AgsdCharacterReturnStatus;
 
-#define AGSDCHARACTER_BAN_CHAT_SYSTEM_MESSAGE	"Ã¤ÆÃ ºÒ°¡´É »óÅÂÀÔ´Ï´Ù"
+#define AGSDCHARACTER_BAN_CHAT_SYSTEM_MESSAGE	"ì±„íŒ… ë¶ˆê°€ëŠ¥ ìƒíƒœì…ë‹ˆë‹¤"
 
 const int	AGSMCHARACTER_MAX_WAIT_OPERATION_TIME	= 15000;
 
@@ -192,9 +192,9 @@ public:
 	DPNID					m_dpnidCharacter;					// character DPNID
 
 	/*
-	INT16					m_bMoveSector;						// ¼½ÅÍ¸¦ ÀÌµ¿Çß´ÂÁö ¿©ºÎ
-	ApWorldSector*			m_pPrevSector;						// ÀÌµ¿ Àü ¼½ÅÍ
-	ApWorldSector*			m_pCurrentSector;					// ÀÌµ¿ ÈÄ ¼½ÅÍ
+	INT16					m_bMoveSector;						// ì„¹í„°ë¥¼ ì´ë™í–ˆëŠ”ì§€ ì—¬ë¶€
+	ApWorldSector*			m_pPrevSector;						// ì´ë™ ì „ ì„¹í„°
+	ApWorldSector*			m_pCurrentSector;					// ì´ë™ í›„ ì„¹í„°
 	*/
 
 	BOOL					m_bMoveCell;
@@ -202,56 +202,56 @@ public:
 	AgsmAOICell*			m_pcsCurrentCell;
 	AuPOS					m_stPrevPos;
 
-	//INT16					m_nLastLoseExp;						// ¸¶Áö¸·À¸·Î ÀÒÀº Exp (À¯°ñÀ» ¼º´çµî¿¡ °¡Á®°¡¼­ Exp º¹±¸ ¹ŞÀ»¶§ »ç¿ëµÈ´Ù.)
+	//INT16					m_nLastLoseExp;						// ë§ˆì§€ë§‰ìœ¼ë¡œ ìƒì€ Exp (ìœ ê³¨ì„ ì„±ë‹¹ë“±ì— ê°€ì ¸ê°€ì„œ Exp ë³µêµ¬ ë°›ì„ë•Œ ì‚¬ìš©ëœë‹¤.)
 
-	INT32					m_ulServerID;						// ÀÌÄ³¸¯ÅÍ¸¦ Ã³¸®ÇÏ°í ÀÖ´Â ¼­¹öÀÇ ¾ÆµÚ
+	INT32					m_ulServerID;						// ì´ìºë¦­í„°ë¥¼ ì²˜ë¦¬í•˜ê³  ìˆëŠ” ì„œë²„ì˜ ì•„ë’¤
 	CHAR					m_szServerName[AGSM_MAX_SERVER_NAME + 1];
 
-	CHAR					m_szAccountID[AGSMACCOUNT_MAX_ACCOUNT_NAME + 1];		// ÀÌ Ä³¸¯À» ¼ÒÀ¯ÇÑ °èÁ¤ ¾ÆµÚ
+	CHAR					m_szAccountID[AGSMACCOUNT_MAX_ACCOUNT_NAME + 1];		// ì´ ìºë¦­ì„ ì†Œìœ í•œ ê³„ì • ì•„ë’¤
 
-	UINT32					m_ulPrevSendMoveTime;				// ÀÌÄÉ¸¯ÀÇ ¿òÁ÷ÀÓÀ» ¸¶Áö¸·À¸·Î º¸³½ ½Ã°£
-	UINT32					m_ulNextAttackTime;					// ´ÙÀ½ °ø°İÀ» ÇÒ ¼ö ÀÖ´Â ½Ã°£
-	UINT32					m_ulNextSkillTime;					// ´ÙÀ½ ½ºÅ³À» ¾µ ¼ö ÀÖ´Â ½Ã°£
+	UINT32					m_ulPrevSendMoveTime;				// ì´ì¼€ë¦­ì˜ ì›€ì§ì„ì„ ë§ˆì§€ë§‰ìœ¼ë¡œ ë³´ë‚¸ ì‹œê°„
+	UINT32					m_ulNextAttackTime;					// ë‹¤ìŒ ê³µê²©ì„ í•  ìˆ˜ ìˆëŠ” ì‹œê°„
+	UINT32					m_ulNextSkillTime;					// ë‹¤ìŒ ìŠ¤í‚¬ì„ ì“¸ ìˆ˜ ìˆëŠ” ì‹œê°„
 
-	UINT32					m_ulRoundTripLatencyMS;				// ÀÌ Ä³¸¯ÅÍÀÇ ¼­¹ö¿Í ¿¬°á Latency
+	UINT32					m_ulRoundTripLatencyMS;				// ì´ ìºë¦­í„°ì˜ ì„œë²„ì™€ ì—°ê²° Latency
 
-	BOOL					m_bDestroyWhenDie;					// Á×¾úÀ»¶§, ÄÉ¸¯ÅÍ¸¦ ¾ø¾Ù°Å¸é TRUE
-	BOOL					m_bResurrectWhenDie;				// Á×¾úÀ»¶§, Ä³¸¯ÅÍ¸¦ ºÎÈ°½ÃÅ³Áö ¿©ºÎ
-	INT32					m_lResurrectHP;						// ºÎÈ°ÇÒ¶§ Ã¤¿öÁÙ HP¾ç
+	BOOL					m_bDestroyWhenDie;					// ì£½ì—ˆì„ë•Œ, ì¼€ë¦­í„°ë¥¼ ì—†ì•¨ê±°ë©´ TRUE
+	BOOL					m_bResurrectWhenDie;				// ì£½ì—ˆì„ë•Œ, ìºë¦­í„°ë¥¼ ë¶€í™œì‹œí‚¬ì§€ ì—¬ë¶€
+	INT32					m_lResurrectHP;						// ë¶€í™œí• ë•Œ ì±„ì›Œì¤„ HPì–‘
 
-	UINT32					m_ulHistoryDuration;				// History¿¡ ³²¾ÆÀÖ´Â ½Ã°£ (³Ñ¾î°¡¸é ¾ø¾îÁø´Ù.)
-	FLOAT					m_fHistoryRange;					// History¿¡ ³²¾ÆÀÖ´Â °Å¸® (¹ş¾î³ª¸é ¾ø¾îÁø´Ù.)
+	UINT32					m_ulHistoryDuration;				// Historyì— ë‚¨ì•„ìˆëŠ” ì‹œê°„ (ë„˜ì–´ê°€ë©´ ì—†ì–´ì§„ë‹¤.)
+	FLOAT					m_fHistoryRange;					// Historyì— ë‚¨ì•„ìˆëŠ” ê±°ë¦¬ (ë²—ì–´ë‚˜ë©´ ì—†ì–´ì§„ë‹¤.)
 
-	AgsdCharacterHistory	m_stHistory;						// °³°³ÀÎ¿¡ ´ëÇÑ È÷½ºÅä¸®
-	AgsdCharacterHistory	m_stHistoryParty;					// ÆÄÆ¼¿¡ ´ëÇÑ È÷½ºÅä¸®
+	AgsdCharacterHistory	m_stHistory;						// ê°œê°œì¸ì— ëŒ€í•œ íˆìŠ¤í† ë¦¬
+	AgsdCharacterHistory	m_stHistoryParty;					// íŒŒí‹°ì— ëŒ€í•œ íˆìŠ¤í† ë¦¬
 
-	UINT64					m_ullDBID;							// Ä³¸¯ÅÍÀÇ DB ID´ç´ç.
+	UINT64					m_ullDBID;							// ìºë¦­í„°ì˜ DB IDë‹¹ë‹¹.
 
 	CHAR					m_szLastShoutWord[AGSM_CHARACTER_MAX_SHOUT_WORD + 1];
 
-	UINT32					m_ulLastUpdateMukzaPointTime;		// ¸ÔÀÚ Æ÷ÀÎÆ®°¡ º¯°æµÈ ¸¶Áö¸· ½Ã°£
-	UINT32					m_ulRemainUpdateMukzaPointTime;		// ¸ÔÀÚ Æ÷ÀÎÆ®°¡ º¯°æµÉ ³²Àº ½Ã°£
+	UINT32					m_ulLastUpdateMukzaPointTime;		// ë¨¹ì í¬ì¸íŠ¸ê°€ ë³€ê²½ëœ ë§ˆì§€ë§‰ ì‹œê°„
+	UINT32					m_ulRemainUpdateMukzaPointTime;		// ë¨¹ì í¬ì¸íŠ¸ê°€ ë³€ê²½ë  ë‚¨ì€ ì‹œê°„
 
-	INT32					m_lReceivedSkillPoint;				// ÀÌ level¿¡¼­ ¹ŞÀº ½ºÅ³ Æ÷ÀÎÆ®
+	INT32					m_lReceivedSkillPoint;				// ì´ levelì—ì„œ ë°›ì€ ìŠ¤í‚¬ í¬ì¸íŠ¸
 
-	UINT32					m_ulLastUpdateActionStatusTime;		// ¸¶Áö¸·À¸·Î action status°¡ º¯°æµÈ ½Ã°£
+	UINT32					m_ulLastUpdateActionStatusTime;		// ë§ˆì§€ë§‰ìœ¼ë¡œ action statusê°€ ë³€ê²½ëœ ì‹œê°„
 
 	BOOL					m_bWaitOperationBeforeRemove;
-	UINT32					m_ulMaxWaitTime;					// ¾ó¸¶³ª ±â´Ù¸±Áö..
+	UINT32					m_ulMaxWaitTime;					// ì–¼ë§ˆë‚˜ ê¸°ë‹¤ë¦´ì§€..
 	//BOOL					m_bWaitOperation[AGSMCHARACTER_WAIT_OPERATION_MAX];
 	ApSafeArray<BOOL, AGSMCHARACTER_WAIT_OPERATION_MAX>		m_bWaitOperation;
 
-	UINT32					m_ulReleaseStunStatusTime;			// ½ºÅÏÀÌ Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseFreezeStatusTime;		// Freeze °¡ Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseSlowStatusTime;			// Slow °¡ Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseInvincibleStatusTime;	// ¹«Àû Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseAttributeInvincibleStatusTime;		// ¼Ó¼º ¹«Àû Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseNotAddAgroStatusTime;	// Not Add Agro Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseHideAgroStatusTime;		// Hide Agro Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseStunProtectStatusTime;	// Stun Protect Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseTransparentTime;			// Åõ¸í Ç®¸± ½Ã°£
-	UINT32					m_ulReleasePvPInvincibleTime;		// PvP ¿ë ¹«Àû Ç®¸± ½Ã°£
-	UINT32					m_ulReleaseHaltStatusTime;			// Halt Ç®¸± ½Ã°£
+	UINT32					m_ulReleaseStunStatusTime;			// ìŠ¤í„´ì´ í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseFreezeStatusTime;		// Freeze ê°€ í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseSlowStatusTime;			// Slow ê°€ í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseInvincibleStatusTime;	// ë¬´ì  í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseAttributeInvincibleStatusTime;		// ì†ì„± ë¬´ì  í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseNotAddAgroStatusTime;	// Not Add Agro í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseHideAgroStatusTime;		// Hide Agro í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseStunProtectStatusTime;	// Stun Protect í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseTransparentTime;			// íˆ¬ëª… í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleasePvPInvincibleTime;		// PvP ìš© ë¬´ì  í’€ë¦´ ì‹œê°„
+	UINT32					m_ulReleaseHaltStatusTime;			// Halt í’€ë¦´ ì‹œê°„
 	UINT32					m_ulReleaseHalfTransparentTime;		// Half Transparent Release Time
 	UINT32					m_ulReleaseNormalATKInvincibleTime;	// Normal Attack Invincible Release Time
 	UINT32					m_ulReleaseSkillATKInvincibleTime;	// Skill Attack Invincible Release Time
@@ -267,11 +267,11 @@ public:
 	UINT32					m_ulReleaseBerserkTime;				// Berserk Release Time
 	UINT32					m_ulReleaseShrinkTime;				// Shrink Release Time
 
-	InvincibleInfo			m_stInvincibleInfo;					// Ç×¸ñº° ¹«Àû È®·ü Á¤º¸.
+	InvincibleInfo			m_stInvincibleInfo;					// í•­ëª©ë³„ ë¬´ì  í™•ë¥  ì •ë³´.
 
-	INT32					m_lSlowStatusValue;					// Slow °¨¼ÒÄ¡ (% ¼ıÀÚÀÓ 0~100)
+	INT32					m_lSlowStatusValue;					// Slow ê°ì†Œì¹˜ (% ìˆ«ìì„ 0~100)
 
-	UINT32					m_ulNextBackupCharacterDataTime;	// ´ÙÀ½ µ¥ÀÌÅ¸¸¦ ¹é¾÷ÇÑ ½Ã°£
+	UINT32					m_ulNextBackupCharacterDataTime;	// ë‹¤ìŒ ë°ì´íƒ€ë¥¼ ë°±ì—…í•œ ì‹œê°„
 
 	UINT32					m_ulReserveTimeForDestroy;
 
@@ -280,13 +280,13 @@ public:
 	BOOL					m_bIsRecvAllDataFromLoginSvr;
 	INT32					m_nRecvLoginServer;
 
-	// ·Î±× °ü·Ã ¸â¹öµéÀÌ´Ù.
+	// ë¡œê·¸ ê´€ë ¨ ë©¤ë²„ë“¤ì´ë‹¤.
 	INT32					m_bDisconnectByDuplicateUser;
 
 	UINT32					m_ulStartClockCount;
 	BOOL					m_bIsPartyPlay;
 
-	UINT32					m_ulPartyPlayTime;			// ¸¶Áö¸· ·Î±×¸¦ ¾´ ÀÌÈÄÀÇ ´©ÀûÄ¡
+	UINT32					m_ulPartyPlayTime;			// ë§ˆì§€ë§‰ ë¡œê·¸ë¥¼ ì“´ ì´í›„ì˜ ëˆ„ì ì¹˜
 	UINT32					m_ulSoloPlayTime;
 	UINT32					m_ulKillMonCount;
 	UINT32					m_ulKillPCCount;
@@ -297,8 +297,8 @@ public:
 
 	INT32					m_lOldCID;
 
-	UINT32					m_ulTimeOutTransform;				// º¯½ÅÇÑ °æ¿ì ³¡³ª´Â ½Ã°£ ¼¼ÆÃ
-	//UINT32					m_ulTimeOutPaid;					// À¯·áÀ¯ÀúÀÎÁö È®ÀÎ ÇÏ´Â ½Ã°£
+	UINT32					m_ulTimeOutTransform;				// ë³€ì‹ í•œ ê²½ìš° ëë‚˜ëŠ” ì‹œê°„ ì„¸íŒ…
+	//UINT32					m_ulTimeOutPaid;					// ìœ ë£Œìœ ì €ì¸ì§€ í™•ì¸ í•˜ëŠ” ì‹œê°„
 
 	BOOL					m_bIsCreatedChar;
 
@@ -325,20 +325,20 @@ public:
 	
 	UINT32					m_ulPlayLogCount;
 
-	BOOL					m_bRemoveByPeriod;		// 2005.10.10. steeple. ¼ÒÈ¯¼ö ½Ã°£ Ã¼Å©¿¡¼­ Áö¿ï ¶§ ¿©·¯¹ø ºÒ¸®´Â Çö»ó ¹æÁö.
+	BOOL					m_bRemoveByPeriod;		// 2005.10.10. steeple. ì†Œí™˜ìˆ˜ ì‹œê°„ ì²´í¬ì—ì„œ ì§€ìš¸ ë•Œ ì—¬ëŸ¬ë²ˆ ë¶ˆë¦¬ëŠ” í˜„ìƒ ë°©ì§€.
 
 	DetailInfo				m_DetailInfo;
 
 	AgsdCharacterTargetInfoArray m_TargetInfoArray;
 	
-	BOOL					m_bIsAuctionBlock;		// 2006.02.07. laki. ¿Á¼Ç ±¸¸Å ºí·ÎÅ·.
-	BOOL					m_bIsGachaBlock;		// 2006.02.07. laki. ¿Á¼Ç ±¸¸Å ºí·ÎÅ·.
+	BOOL					m_bIsAuctionBlock;		// 2006.02.07. laki. ì˜¥ì…˜ êµ¬ë§¤ ë¸”ë¡œí‚¹.
+	BOOL					m_bIsGachaBlock;		// 2006.02.07. laki. ì˜¥ì…˜ êµ¬ë§¤ ë¸”ë¡œí‚¹.
 	BOOL					m_bIsTeleportBlock;
 
 	AgsdCharacterReturnStatus	m_eReturnStatus;
 
-	UINT32					m_ulConnectedTimeStamp;	// 2006.03.09. steeple Á¢¼ÓÇßÀ» ¶§ÀÇ TimeStamp
-	INT32					m_lLoginLevel;			// 2007.11.06. steeple ·Î±×ÀÎ ÇßÀ» ¶§ÀÇ Level
+	UINT32					m_ulConnectedTimeStamp;	// 2006.03.09. steeple ì ‘ì†í–ˆì„ ë•Œì˜ TimeStamp
+	INT32					m_lLoginLevel;			// 2007.11.06. steeple ë¡œê·¸ì¸ í–ˆì„ ë•Œì˜ Level
 
 	BOOL					m_bNeedReinitialize;
 
@@ -346,11 +346,11 @@ public:
 
 	BOOL					m_bIsAutoPickupItem;
 	
-	stOptionSkillData		m_stOptionSkillData;	// 2006.12.12. steeple. ¾ÆÀÌÅÛ ¿É¼Ç¿¡ ÀÇÇØ¼­ Àû¿ëµÇ´Â ½ºÅ³µ¥ÀÌÅÍ.
-	BOOL					m_bLevelUpForced;		// Exp »ó½ÂÀÌ ¾Æ´Ñ °­Á¦ ¼¼ÆÃÀ¸·Î ·¹º§ÀÌ º¯°æµÈ °æ¿ì
-	INT32					m_lLevelBeforeForced;	// °­Á¦ ¼¼ÆÃ Á÷ÀüÀÇ ·¹º§.
-	INT32					m_lMemberBillingNum;		// ÀÏº»: »ç¿ëÀÚ °áÁ¦ ¹øÈ£
-	char					m_szMemberBillingNum[32];	// ÀÏº»: »ç¿ëÀÚ °áÁ¦ ¹øÈ£
+	stOptionSkillData		m_stOptionSkillData;	// 2006.12.12. steeple. ì•„ì´í…œ ì˜µì…˜ì— ì˜í•´ì„œ ì ìš©ë˜ëŠ” ìŠ¤í‚¬ë°ì´í„°.
+	BOOL					m_bLevelUpForced;		// Exp ìƒìŠ¹ì´ ì•„ë‹Œ ê°•ì œ ì„¸íŒ…ìœ¼ë¡œ ë ˆë²¨ì´ ë³€ê²½ëœ ê²½ìš°
+	INT32					m_lLevelBeforeForced;	// ê°•ì œ ì„¸íŒ… ì§ì „ì˜ ë ˆë²¨.
+	INT32					m_lMemberBillingNum;		// ì¼ë³¸: ì‚¬ìš©ì ê²°ì œ ë²ˆí˜¸
+	char					m_szMemberBillingNum[32];	// ì¼ë³¸: ì‚¬ìš©ì ê²°ì œ ë²ˆí˜¸
 	CHAR					m_szResurrectionCaster[AGPDCHARACTER_MAX_ID_LENGTH + 1];
 
 	CHAR					m_szCRMCode[AGPDLOG_MAX_PCROOM_CRM_CODE + 1];	// 2007.11.08. steeple PCRoom CRMCode
